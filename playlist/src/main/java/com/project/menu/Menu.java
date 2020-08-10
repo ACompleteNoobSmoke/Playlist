@@ -1,5 +1,7 @@
 package com.project.menu;
 
+import com.project.model.User;
+
 public class Menu {
 	
 	//Main Menu
@@ -18,12 +20,15 @@ public class Menu {
 	}
 	
 	//User Menu
-	public int userMenu() {
+	public int userMenu(User profile) {
 		int userPick = 0;
-		while(userPick < 1) {
 			System.out.println("*** User Menu ***");
-			
-		}
+			System.out.println("Hello " + profile.getUserName());
+			System.out.println("UNDER CONSTRUCTION!!!");
+			userPick = UserInputs.getInt();
+		return userPick;
 	}
+	
+	
 
 }
