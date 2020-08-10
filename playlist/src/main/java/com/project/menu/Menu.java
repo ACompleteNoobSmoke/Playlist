@@ -8,7 +8,7 @@ public class Menu {
 	public int mainMenu() {
 		int mainPick = 0;
 		while(mainPick < 1 || mainPick > 4) {
-			System.out.println("*** Main Menu ***");
+			System.out.println("*** MAIN MENU ***");
 			System.out.println("1. Login");
 			System.out.println("2. Register");
 			System.out.println("3. View All User");
@@ -22,9 +22,10 @@ public class Menu {
 	//User Menu
 	public int userMenu(User profile) {
 		int userPick = 0;
-			System.out.println("*** User Menu ***");
+			System.out.println("*** USER MENU ***");
 			System.out.println("Hello " + profile.getUserName());
-			System.out.println("UNDER CONSTRUCTION!!!");
+			System.err.println("UNDER CONSTRUCTION!!!");
+			System.err.println("PRESS ANY NUMBER TO RETURN TO MAIN PAGE");
 			userPick = UserInputs.getInt();
 		return userPick;
 	}

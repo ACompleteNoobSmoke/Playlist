@@ -27,7 +27,7 @@ public class UserInputs {
 	}
 	
 	//Get First Name Input From User
-	public String getFirstName() {
+	public static String getFirstName() {
 		String firstName = "";
 		while(firstName.isBlank()) {
 			System.out.print("Enter First Name: ");
@@ -37,7 +37,7 @@ public class UserInputs {
 	}
 		
 	//Get Last Name Input From User
-	public String getLastName() {
+	public static String getLastName() {
 		String lastName = "";
 		while(lastName.isBlank()) {
 			System.out.print("Enter Last Name: ");
@@ -47,7 +47,7 @@ public class UserInputs {
 	}
 		
 	//Get Username Input From User
-	public String getUsername() {
+	public static String getUsername() {
 		String userName = "";
 		while(userName.isBlank()) {
 			System.out.print("Enter Username: ");
@@ -57,7 +57,7 @@ public class UserInputs {
 	}
 		
 	//Get Password Input From User
-	public String getPassword() {
+	public static String getPassword() {
 		String passWord = "";
 		while(passWord.isBlank()) {
 			System.out.print("Enter Password: ");
@@ -67,7 +67,7 @@ public class UserInputs {
 	}
 	
 	//Get Favorite Artist From User
-	public String getFavoriteArtist() {
+	public static String getFavoriteArtist() {
 		String favorite = "";
 		while(favorite.isBlank()) {
 			System.out.print("Enter Favorite Artist: ");
@@ -77,7 +77,7 @@ public class UserInputs {
 	}
 	
 	//Close Scanner
-	public void closeScanner() {
+	public static void closeScanner() {
 		scan.close();
 	}
 
