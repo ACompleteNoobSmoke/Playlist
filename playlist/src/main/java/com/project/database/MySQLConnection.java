@@ -92,4 +92,6 @@ public class MySQLConnection {
 
 		return loggedIn;
 	}
+
+	// public boolean insertNewSong(String username, )
 }
