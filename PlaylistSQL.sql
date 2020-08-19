@@ -12,12 +12,13 @@ FavoriteArtist varchar(30)
 select * from UserTable;
 truncate table UserTable;
 drop table UserTable;
-
 insert into UserTable values('Boye', 'Uwensuyi', 'Prince Aji', 'Aji', 'Drake');
+select UserName from UserTable where UserName = 'Prince Aji';
 
 create table Songs(
 UserName varchar(30),
 Artist varchar(30),
+AlbumType varchar(18),
 Album varchar(30),
 Song varchar(30),
 Year int,
