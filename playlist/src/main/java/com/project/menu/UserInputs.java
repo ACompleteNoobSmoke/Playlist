@@ -136,30 +136,89 @@ public class UserInputs {
 		return yearReleased;
 	}
 
+	// Get The Project Type Whether It's An LP, EP, Mixtape, etc
 	public static String getType() {
-		Menu nMenu = new Menu();
-		int project = nMenu.projectMenu();
+		Menu menu = new Menu();
+		int typeChoice = menu.projectMenu();
+		String type = "";
+		switch (typeChoice) {
+			case 1:
+				type = "Album";
+				break;
+			case 2:
+				type = "Mixtape";
+				break;
+			case 3:
+				type = "Extended Play(EP)";
+				break;
+			case 4:
+				type = "Single";
+				break;
+			case 5:
+				type = "Unreleased(Leaks)";
+				break;
+		}
+		return type;
+	}
+
+	// Get The Genre Of Music
+	public static String getGenre() {
+		Menu menu = new Menu();
+		int genreChoice = menu.genreMenu();
+		String genre = "";
+		switch (genreChoice) {
+			case 1:
+				genre = "Hip-Hop/Rap";
+				break;
+			case 2:
+				genre = "Rock";
+				break;
+			case 3:
+				genre = "Rhythm & Blues";
+				break;
+			case 4:
+				genre = "EDM/Techno";
+				break;
+			case 5:
+				genre = "Funk";
+				break;
+			case 6:
+				genre = "Classical";
+				break;
+			case 7:
+				genre = "Instrumental";
+				break;
+			case 8:
+				genre = "Other";
+				break;
+		}
+		return genre;
+	}
+
+	// Get Title Of The Album, Mixtape or EP
+	// If Project Is Single & Unreleased Then Assigned Respective Type By Default
+	public static String getProjectName(String projectType) {
 		ProjectType projecttype = null;
-		if (project == 1) {
+		if (projectType.equals("Album")) {
 			projecttype = () -> {
 				String albumName = UserInputs.getAlbumTitle();
 				return albumName;
 			};
-		} else if (project == 2) {
+		} else if (projectType.equals("Mixtape")) {
 			projecttype = () -> {
 				String mixName = UserInputs.getMixtapeTitle();
 				return mixName;
 			};
-		} else if (project == 3) {
+		} else if (projectType.equals("Extended Play(EP)")) {
 			projecttype = () -> {
 				String epName = UserInputs.getEPTitle();
 				return epName;
 			};
-		} else if (project == 4) {
+		} else if (projectType.equals("Single")) {
 			projecttype = () -> {
 				return "Single";
 			};
-		} else if (project == 5) {
+		} else if (projectType.equals("Unreleased(Leaks)")) {
 			projecttype = () -> {
 				return "Unreleased";
 			};

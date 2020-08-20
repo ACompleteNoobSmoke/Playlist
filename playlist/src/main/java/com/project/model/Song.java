@@ -3,6 +3,7 @@ package com.project.model;
 public class Song {
 
 	private String title;
+	private String genre;
 	private String artist;
 	private String albumType;
 	private String album;
@@ -10,9 +11,10 @@ public class Song {
 
 	// Creates a playlist object with an title, artist, album type, album, and
 	// yearReleased.
-	public Song(String title, String artist, String albumType, String album, int yearReleased) {
+	public Song(String title, String artist, String genre, String albumType, String album, int yearReleased) {
 		this.title = title;
 		this.artist = artist;
+		this.genre = genre;
 		this.albumType = albumType;
 		this.album = album;
 		this.yearReleased = yearReleased;
@@ -33,6 +35,21 @@ public class Song {
 		this.artist = artist;
 	}
 
+	// Returns the value of artist in a Song.
+	public String getArtist() {
+		return this.artist;
+	}
+
+	// Set Genre To Argument Genre
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	// Returns the valur of genre in a Song.
+	public String getGenre() {
+		return genre;
+	}
+
 	// Set Album Type To Argument Album Type
 	public void setAlbumType(String albumType) {
 		this.albumType = albumType;
@@ -41,11 +58,6 @@ public class Song {
 	// Get Album Type To Argument Album Type
 	public String getAlbumType() {
 		return albumType;
-	}
-
-	// Returns the value of artist in a Song.
-	public String getArtist() {
-		return this.artist;
 	}
 
 	// Sets Song's album to argument album.
