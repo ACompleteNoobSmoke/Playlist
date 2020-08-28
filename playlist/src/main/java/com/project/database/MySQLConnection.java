@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import com.project.model.Song;
 import com.project.model.User;
@@ -69,7 +70,7 @@ public class MySQLConnection {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/PlaylistSQL2", "root",
 					"codingroot1!");
 			PreparedStatement ps = con
-					.prepareStatement("Select * From `UserTable` Where UserName = (?) AND Where PassWord = (?)");
+					.prepareStatement("Select * From `UserTable` Where UserName = (?) AND PassWord = (?)");
 			ps.setString(1, username);
 			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
@@ -173,5 +174,44 @@ public class MySQLConnection {
 		}
 
 		return foundSong;
+	}
+
+	public ArrayList<Song> retrieveAlbum(String userName, String artist, String albumTitle) {
+		Song foundSong = null;
+		String songArtist = "%" + artist + "%";
+		ArrayList<Song> songsFromAlbum = new ArrayList<Song>();
+		try {
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/PlaylistSQL2", "root",
+					"codingroot1!");
+			PreparedStatement ps = con
+					.prepareStatement("Select * From `Songs` Where UserName = (?) AND Artist LIKE (?) AND Album = (?)");
+			ps.setString(1, userName);
+			ps.setString(2, songArtist);
+			ps.setString(3, albumTitle);
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				String found = rs.getString("UserName");
+				if (found.equals(userName)) {
+					String songTitle = rs.getString("Song");
+					String albumType = rs.getString("AlbumType");
+					String album = rs.getString("Album");
+					int year = rs.getInt("Year");
+					String genre = rs.getString("Genre");
+					// artist = rs.getString("Artist");
+					foundSong = new Song(songTitle, artist, genre, albumType, album, year);
+					songsFromAlbum.add(foundSong);
+				}
+			}
+			ps.close();
+			rs.close();
+			con.close();
+		} catch (Exception e) {
+			System.out.println("The Album Search Function Did Not Work");
+			System.out.println(e);
+			return null;
+		}
+
+		return songsFromAlbum;
 	}
 }

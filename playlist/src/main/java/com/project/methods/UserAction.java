@@ -11,6 +11,9 @@ public class UserAction {
 		if (i == 1) {
 			InsertAction action = new InsertAction();
 			action.insert(profile.getUserName());
+		} else if (i == 2) {
+			SearchAction search = new SearchAction();
+			search.searching(profile.getUserName());
 		}
 
 	}

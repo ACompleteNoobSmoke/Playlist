@@ -22,10 +22,11 @@ public class Menu {
 	// User Menu
 	public int userMenu(User profile) {
 		int userPick = 0;
-		while (userPick < 1 || userPick > 1) {
+		while (userPick < 1 || userPick > 2) {
 			System.out.println("*** USER MENU ***");
 			System.out.println("Hello " + profile.getUserName());
 			System.out.println("1. Add Song");
+			System.out.println("2. Search");
 			System.out.print("\nAction: ");
 			userPick = UserInputs.getInt();
 		}
@@ -65,6 +66,20 @@ public class Menu {
 		}
 		System.out.println("");
 		return genre;
+	}
+
+	public int searchMenu() {
+		int searchPick = 0;
+		while (searchPick < 1 || searchPick > 3) {
+			System.out.println("*** Search Menu ***");
+			System.out.println("1. Search (Song Title)");
+			System.out.println("2. Search (Album)");
+			System.out.println("3. Back");
+			System.out.print("\nAction: ");
+			searchPick = UserInputs.getInt();
+		}
+		System.out.println("");
+		return searchPick;
 	}
 
 }

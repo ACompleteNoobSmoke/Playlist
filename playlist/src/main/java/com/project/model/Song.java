@@ -84,4 +84,29 @@ public class Song {
 		return this.yearReleased;
 	}
 
+	// Header With Track Number To Song Information
+	public void songHeaderTrack() {
+		System.out.printf("%-15s%-22s%-22s%-22s%-22s%-22s\n", "Track", "Title", "Artist", "Album", "Genre", "Year");
+		System.out.println(
+				"____________________________________________________________________________________________________________");
+	}
+
+	public void songHeaderTitle() {
+		System.out.printf("%-22s%-22s%-22s%-22s%-22s\n", "Title", "Artist", "Album", "Genre", "Year");
+		System.out.println(
+				"_____________________________________________________________________________________________________");
+	}
+
+	//
+	public String toString() {
+		String songInfo = String.format("%-22s%-22s%-22s%-22s%-22d", title, artist, album, genre, yearReleased);
+		return songInfo;
+	}
+
+	public String toString(int trackNumber) {
+		String songInfo = String.format("%-15d%-22s%-22s%-22s%-22s%-22d", trackNumber, title, artist, album, genre,
+				yearReleased);
+		return songInfo;
+	}
+
 } // End class
