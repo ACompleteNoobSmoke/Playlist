@@ -16,13 +16,13 @@ insert into UserTable values('Boye', 'Uwensuyi', 'Prince Aji', 'Aji', 'Drake');
 select UserName from UserTable where UserName = 'Prince Aji';
 
 create table Songs(
-UserName varchar(30), 
-Song varchar(30),
-Artist varchar(30),
-AlbumType varchar(18),
-Album varchar(30),
+UserName varchar(250), 
+Song varchar(250),
+Artist varchar(250),
+AlbumType varchar(20),
+Album varchar(250),
 Year int,
-Genre varchar(30),
+Genre varchar(40),
 FOREIGN KEY(UserName) REFERENCES UserTable(UserName)
 );
 
